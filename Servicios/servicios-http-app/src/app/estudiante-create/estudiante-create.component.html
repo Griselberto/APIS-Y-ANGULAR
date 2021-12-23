@@ -1,1 +1,37 @@
-<p>estudiante-create works!</p>
+<div class="container custom-container">
+    <div class="col-md-12">
+        <h3 class="mb-3 text-center">Registrar Estudiante</h3>
+
+        <div class="form-group">
+            <input type="text" [(ngModel)]="estudianteDetalle.dni" class="form-control" placeholder="dni ">
+        </div>
+
+        <div class="form-group">
+            <input type="text" [(ngModel)]="estudianteDetalle.apellidoPaterno" class="form-control" placeholder="Apellido paterno">
+        </div>
+
+        <div class="form-group">
+            <input type="text" [(ngModel)]="estudianteDetalle.apellidoMaterno" class="form-control" placeholder="Apellido Materno ">
+        </div>
+
+        <div class="form-group">
+            <input type="text" [(ngModel)]="estudianteDetalle.nombres" class="form-control" placeholder="Nombres ">
+        </div>
+
+        <div class="form-group">
+            <input type="date" [(ngModel)]="estudianteDetalle.fechaNacimiento" class="form-control" >
+        </div>
+
+        <select>
+            <option  [(ngModel)]="estudianteDetalle.sexo" selected >Masculino</option>
+            <option  [(ngModel)]="estudianteDetalle.sexo" >Femenino</option>
+        </select>
+        <div>
+            <label><input type="checkbox" id="cbox1" value="first_checkbox" [(ngModel)]="estudianteDetalle.vigencia" checked> Vigencia</label><br>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" (click)="addEstudiante()">Registrar</button>
+        </div>
+
+    </div>
+</div>

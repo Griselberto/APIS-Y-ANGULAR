@@ -1,7 +1,7 @@
 import { Component, OnInit ,Input  } from '@angular/core';
 
 import { Router } from '@angular/router';
-import { Carrera } from '../shared/carrera';
+
 import { RestApiService } from "../shared/rest-api.service";
 
 @Component({

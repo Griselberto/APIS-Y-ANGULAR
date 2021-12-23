@@ -1,1 +1,24 @@
-<p>curso-create works!</p>
+<div class="container custom-container">
+    <div class="col-md-12">
+        <h3 class="mb-3 text-center">Registrar Curso</h3>
+
+        <div class="form-group">
+            <input type="text" [(ngModel)]="cursoDetalle.codigo" class="form-control" placeholder="Codigo ">
+        </div>
+
+        <div class="form-group">
+            <input type="text" [(ngModel)]="cursoDetalle.nombre" class="form-control" placeholder="Nombre">
+        </div>
+
+        <div class="form-group">
+            <input type="number" [(ngModel)]="cursoDetalle.creditos" class="form-control" placeholder="duracion ">
+        </div>
+        <div class="form-group">
+            <input type="text" [(ngModel)]="cursoDetalle.docente" class="form-control" placeholder="Docente ">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" (click)="addCurso()">Registrar</button>
+        </div>
+
+    </div>
+</div>

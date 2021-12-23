@@ -1,1 +1,49 @@
-<p>estudiante-list works!</p>
+<div class="container custom-container-2">
+
+    <!-- Show it when there is no employee -->
+    <div class="no-data text-center" *ngIf="Estudiante.length == 0">
+        <p>No hay carreras registrados!</p>
+        <button class="btn btn-outline-primary" routerLink="/crear-carrera">Agregar curso</button>
+    </div>
+
+    <!-- Employees list table, it hides when there is no employee -->
+    <div *ngIf="Estudiante.length !== 0">
+        <h3 class="mb-3 text-center">Lista de Estudiantes</h3>
+
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">DNI</th>
+                        <th scope="col">Apellido Paterno</th>
+                        <th scope="col">Apellido Materno</th>
+                        <th scope="col">nombres</th>
+                        <th scope="col">Fecha Nacimiento</th>
+                        <th scope="col">sexo</th>
+                        <th scope="col">carrera</th>
+                        <th scope="col">vigencia</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of Estudiante">
+                        <td>{{c.dni}}</td>
+                        <td>{{c.apellidoPaterno}}</td>
+                        <td>{{c.apellidoMaterno}}</td>
+                        <td>{{c.nombres}}</td>
+                        <td>{{c.fechaNacimiento}}</td>
+                        <td>{{c.sexo}}</td>
+                        <td>{{c.carrera}}</td>
+                        <td>{{c.vigencia}}</td>
+
+                        <td>
+                            <button class="btn btn-success" routerLink="/editar-estudiante/{{c.codigo}}">Editar</button>
+                            <button class="btn btn-danger" (click)="eliminarEstudiante(c.codigo)">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+

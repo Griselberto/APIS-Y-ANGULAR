@@ -1,1 +1,39 @@
-<p>matricula-list works!</p>
+<div class="container custom-container-2">
+
+    <!-- Show it when there is no employee -->
+    <div class="no-data text-center" *ngIf="Matricula.length == 0">
+        <p>No hay carreras registrados!</p>
+        <button class="btn btn-outline-primary" routerLink="/crear-matricula">Agregar matricula</button>
+    </div>
+
+    <!-- Employees list table, it hides when there is no employee -->
+    <div *ngIf="Matricula.length !== 0">
+        <h3 class="mb-3 text-center">Lista de Matriculas</h3>
+
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Estudiante</th>
+                        <th scope="col">curso</th>
+                        <th scope="col">Fecha</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of Matricula">
+                        <td>{{c.id}}</td>
+                        <td>{{c.estudiante}}</td>
+                        <td>{{c.curso}}</td>
+                        <td>{{c.fechaMatricula}}</td>
+
+                        <td>
+                            <button class="btn btn-success" routerLink="/editar-matricula/{{c.id}}">Editar</button>
+                            <button class="btn btn-danger" (click)="eliminarMatricula(c.id)">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>

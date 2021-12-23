@@ -1,1 +1,40 @@
-<p>carrera-list works!</p>
+
+<div class="container custom-container-2">
+
+    <!-- Show it when there is no employee -->
+    <div class="no-data text-center" *ngIf="Carrera.length == 0">
+        <p>No hay carreras registrados!</p>
+        <button class="btn btn-outline-primary" routerLink="/crear-carrera">Agregar carrera</button>
+    </div>
+
+    <!-- Employees list table, it hides when there is no employee -->
+    <div *ngIf="Carrera.length !== 0">
+        <h3 class="mb-3 text-center">Lista de Carreras</h3>
+
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Carrera Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Duracion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of Carrera">
+                        <td>{{c.codigo}}</td>
+                        <td>{{c.nombre}}</td>
+                        <td>{{c.duracion}}</td>
+
+                        <td>
+                            <button class="btn btn-success" routerLink="/editar-carrera/{{c.codigo}}">Editar</button>
+                            <button class="btn btn-danger" (click)="eliminarCarrera(c.codigo)">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>

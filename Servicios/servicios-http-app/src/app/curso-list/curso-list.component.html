@@ -1,1 +1,43 @@
-<p>curso-list works!</p>
+
+<div class="container custom-container-2">
+
+    <!-- Show it when there is no employee -->
+    <div class="no-data text-center" *ngIf="Curso.length == 0">
+        <p>No hay carreras registrados!</p>
+        <button class="btn btn-outline-primary" routerLink="/crear-curso">Agregar curso</button>
+    </div>
+
+    <!-- Employees list table, it hides when there is no employee -->
+    <div *ngIf="Curso.length !== 0">
+        <h3 class="mb-3 text-center">Lista de Cursos</h3>
+
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Curso Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Duracion</th>
+                        <th scope="col">Docente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of Curso">
+                        <td>{{c.codigo}}</td>
+                        <td>{{c.nombre}}</td>
+                        <td>{{c.creditos}}</td>
+                        <td>{{c.docente}}</td>
+
+                        <td>
+                            <button class="btn btn-success" routerLink="/editar-curso/{{c.codigo}}">Editar</button>
+                            <button class="btn btn-danger" (click)="eliminarCurso(c.codigo)">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input  } from '@angular/core';
 
+import { Router } from '@angular/router';
+
+import { RestApiService } from "../shared/rest-api.service";
 @Component({
   selector: 'app-matricula-create',
   templateUrl: './matricula-create.component.html',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MatriculaCreateComponent implements OnInit {
 
-  constructor() { }
-
+  @Input() matriculaDetalle = { estudiante: '', curso: '', fechaMatricula: ''}
+  constructor(public restApi: RestApiService,
+    public router: Router) {
+  }
   ngOnInit(): void {
   }
-
+  addMatricula() {
+    this.restApi.createMatricula(this.matriculaDetalle).subscribe((data: {}) => {
+      this.router.navigate(['/lista-curso'])
+    })
+  }
 }

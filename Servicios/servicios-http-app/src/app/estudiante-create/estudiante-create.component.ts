@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input  } from '@angular/core';
 
+import { Router } from '@angular/router';
+
+import { RestApiService } from "../shared/rest-api.service";
 @Component({
   selector: 'app-estudiante-create',
   templateUrl: './estudiante-create.component.html',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstudianteCreateComponent implements OnInit {
 
-  constructor() { }
-
+  @Input() estudianteDetalle = { dni: '', apellidoPaterno: '', apellidoMaterno: '', nombres: '',fechaNacimiento: '', sexo: '', carrera: '' ,vigencia:true  }
+  constructor(public restApi: RestApiService,
+    public router: Router) {
+  }
   ngOnInit(): void {
+  }
+  addEstudiante() {
+    this.restApi.createEstudiante(this.estudianteDetalle).subscribe((data: {}) => {
+      this.router.navigate(['/lista-estudiante'])
+    })
   }
 
 }

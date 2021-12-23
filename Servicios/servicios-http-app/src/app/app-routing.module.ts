@@ -22,7 +22,7 @@ const routes: Routes = [
 
   { path: 'crear-carrera', component: CarreraCreateComponent },
   { path: 'editar-carrera/:id', component: CarreraEditComponent },
-  { path: 'lista-producto', component: CarreraListComponent },
+  { path: 'lista-carrera', component: CarreraListComponent },
 
   { path: 'crear-curso', component: CursoCreateComponent },
   { path: 'editar-curso/:id', component: CursoEditComponent },

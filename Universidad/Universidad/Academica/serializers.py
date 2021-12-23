@@ -20,4 +20,4 @@ class CursoSerializer(serializers.ModelSerializer):
 class MatriculaSerializer(serializers.ModelSerializer):
     class Meta:
         model=Matricula 
-        fields=('estudiante','curso','fechaMatricula')
+        fields=('id','estudiante','curso','fechaMatricula')

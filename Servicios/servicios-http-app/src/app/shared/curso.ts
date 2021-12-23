@@ -1,6 +1,6 @@
 export class Curso {
     codigo: String | undefined;
 	nombre : String | undefined;
-	creditos : String | undefined;
+	creditos : Number | undefined;
 	docente : String | undefined;
 }
